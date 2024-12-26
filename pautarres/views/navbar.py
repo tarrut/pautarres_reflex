@@ -8,10 +8,10 @@ def navbar():
             rx.list(
                 create_nav_item(href="/", text="Home"),
                 create_nav_item(
-                    href="#projects", text="Projects"
+                    href="/#projects", text="Projects"
                 ),
                 create_nav_item(
-                    href="#contact", text="Contact"
+                    href="/#contact", text="Contact"
                 ),
                 display="flex",
                 justify_content="flex-end",

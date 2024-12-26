@@ -32,7 +32,7 @@ def proj_cards():
             }
         ),
         id="projects",
-        margin_bottom="5rem",
+        margin_bottom="7rem",
     )
 
 def projects_section():

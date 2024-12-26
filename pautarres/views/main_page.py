@@ -8,12 +8,8 @@ from ..views.footer import footer
 from ..views.projects_section import projects_section
 from ..views.head import head
 
-def main_content():
-    """Create the main content of the portfolio including hero, about, projects, and contact sections."""
+def contact_section():
     return rx.box(
-        head(),
-        projects_section(),
-        rx.box(
             section_heading(text="Get in Touch"),
             rx.text(
                 "Interested in working together? Feel free to reach out!",
@@ -25,6 +21,13 @@ def main_content():
             text_align="center",
             margin_bottom="5rem",
         ),
+
+def main_content():
+    """Create the main content of the portfolio including hero, about, projects, and contact sections."""
+    return rx.box(
+        head(),
+        projects_section(),
+        contact_section(),
         width="100%",
         style=rx.breakpoints(
             {
