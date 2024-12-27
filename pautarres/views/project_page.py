@@ -58,6 +58,6 @@ def insert_project(filename):
         margin_right="auto",
         padding_left="1.5rem",
         padding_right="1.5rem",
-        padding_top="5rem",
+        padding_top="1rem",
         padding_bottom="0rem",
     )

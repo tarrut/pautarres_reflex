@@ -11,5 +11,11 @@ projects = [
         "description": "A customizable portfolio template for creatives.",
         "image_src": "https://placehold.co/600x400?text=Portfolio+Template",
         "link": "/project2",
+    },      
+    {
+        "title": "ARI PESA''",
+        "description": "A customizable portfolio template for creatives.",
+        "image_src": "https://placehold.co/600x400?text=Portfolio+Template",
+        "link": "/project3",
     },
 ]
