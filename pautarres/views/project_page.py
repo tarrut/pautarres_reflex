@@ -44,14 +44,15 @@ def insert_project(filename):
             rx.markdown(load_markdown_file(filename)),
             color="#000000"
         ),
-        width="100%",
+        display="flex",
+        justify_content="center",
         style=rx.breakpoints(
             {
                 "640px": {"max-width": "640px"},
                 "768px": {"max-width": "768px"},
-                "1024px": {"max-width": "1024px"},
-                "1280px": {"max-width": "1280px"},
-                "1536px": {"max-width": "1536px"},
+                "1024px": {"max-width": "900px"},
+                "1280px": {"max-width": "900px"},
+                "1536px": {"max-width": "900px"},
             }
         ),
         margin_left="auto",

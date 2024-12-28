@@ -13,3 +13,5 @@ As this is my first foray into web development, I have kept the design simple an
 
 - A landing page with an introduction, project cards, and a contact section displaying my links and contact information.
 - Each project card links to a dedicated page created directly from a Markdown file, significantly streamlining the process of writing and publishing articles.
+
+[Here](https://github.com/tarrut/pautarres_website) you can find the GitHub repository with all the code.
