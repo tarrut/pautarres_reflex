@@ -32,12 +32,11 @@ def project_page(filename):
     )
 
 
-
 def load_markdown_file(filename):
     filepath = Path("assets/projects") / filename
     with open(filepath, "r", encoding="utf-8") as f:
         return f.read()
-    
+
 
 def insert_project(filename):
     return rx.box(
