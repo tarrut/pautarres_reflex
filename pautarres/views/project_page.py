@@ -27,7 +27,8 @@ def project_page(filename):
             min_height="100vh",
             background_color="#ffffff",
             font_family='system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-        )
+        ),
+        background_color="#ffffff",
     )
 
 
@@ -41,8 +42,8 @@ def load_markdown_file(filename):
 def insert_project(filename):
     return rx.box(
         rx.box(
-            rx.markdown(load_markdown_file(filename)),
-            color="#000000"
+            rx.markdown(load_markdown_file(filename), component_map=component_map),
+            color="#000000",
         ),
         display="flex",
         justify_content="center",
@@ -62,3 +63,23 @@ def insert_project(filename):
         padding_top="1rem",
         padding_bottom="0rem",
     )
+
+component_map = {
+    "h1": lambda text: rx.heading(
+        text,
+        border_bottom="2px solid black",
+        margin_top="2rem",
+        padding_bottom="0.5rem"
+    ),
+    "h2": lambda text: rx.heading(
+        text,
+        border_bottom="1px solid black",
+        margin_top="2rem",
+        padding_bottom="0.5rem"
+    ),
+    "h3": lambda text: rx.heading(
+        text,
+        margin_top="2rem",
+        size="5"
+    ),
+}
