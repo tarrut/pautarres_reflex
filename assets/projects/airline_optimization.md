@@ -1,15 +1,7 @@
-<style type="text/css">
-
-body{ /* Normal  */
-      font-size: 14px;
-  }
-</style>
-
 # Airline Optimization
 
-This project has been carried out during my masters degree in Aerospace
-Engineering. In the project, diferent aspects of the job of am airline
-are presented. These include:
+This project was carried out during my master's degree in Aerospace Engineering.
+The project explores different aspects of airline operations, including:
 
 -   Fleet distribution
 -   Revise schedule
@@ -20,64 +12,54 @@ The referent code can be found in the following
 
 ## Introduction
 
-Based on forecasts, the airline’s load-factor policy, and marketing
-analysis, our airline has proposed providing three daily round-trip
-flights from OVB to BTK, GDX, NMA, NYM, PWQ, TOF and UUS.
+Based on forecasts, the airline’s load-factor policy, and marketing analysis, our airline has proposed providing three daily round-trip flights from OVB to BTK, GDX, NMA, NYM, PWQ, TOF, and UUS.
 
-We have two types of fleet, namely Boeing 737-400 and Airbus A321. The
-seating capacities for these two fleet types are 189 and 228 seats
-respectively. Furthermore, we have the following information for this
-airline:
+We have two types of aircraft in our fleet: Boeing 737-400 and Airbus A321. The seating capacities for these two fleet types are 189 and 228 seats, respectively. Furthermore, the following information is available for this airline:
 
--   Cost per available seat kilometer (CASK) for B737-400 and A321 are
-    0.037€ (3.7 cents) and 0.04€ (4 cents) respectively.
--   Revenue per available seat kilometer (RASK) for B737-400 and A321
-    are 0.124€ (12.4 cents) and 0.125€ (12.5 cents) respectively.
+-   Cost per available seat kilometer (CASK) for B737-400 and A321 are 0.037€ (3.7 cents) and 0.04€ (4 cents) respectively.
+-   Revenue per available seat kilometer (RASK) for B737-400 and A321 are 0.124€ (12.4 cents) and 0.125€ (12.5 cents) respectively.
 
-Assume that we have 6 and 10 aircrafts in our B737-400 and A321 fleets,
-respectively. Due to the small size of our airline we are unable to
-recapture passengers that were spilled. Also assume turnaround times of
-50 and 65 minutes for these two fleet types respectively. Furthermore,
-sit-connection times for crew members will range from 20 to 180 minutes
-for B737-400 and 10 to 185 minutes for A321.
+The fleet consists of 6 B737-400 aircraft and 10 A321 aircraft. Due to the small size of our airline, we cannot recapture passengers who are spilled. Additionally, turnaround times are 50 and 65 minutes for the B737-400 and A321, respectively. Crew sit-connection times range from 20 to 180 minutes for the B737-400 and from 10 to 185 minutes for the A321.
 
 ### Flight schedule
 
-We have also developed a first draft of our schedule for the next
-quarter. The complete flight schedule route, incorporating the 42
-flights per day, is presented in the [following
-table](https://github.com/tarrut/Airline-Optimization/blob/e653312ae903a598b87b9ac467ad52251428c680/schedule.csv).
-All the arrival and departure times are local times.
+We developed a preliminary schedule for the next quarter. The complete route, which includes 42 flights per day, is presented in the [following
+table](https://github.com/tarrut/Airline-Optimization/blob/main/schedule.csv). All departure and arrival times are local.
 
 ### Flight information
 
-The [following
-table](https://github.com/tarrut/Airline-Optimization/blob/e653312ae903a598b87b9ac467ad52251428c680/flight_info.csv)
-presents the demand distribution for each flight as well as distances
-between cities. It is assumed that demand for each flight is normally
-distributed with the given means and standard deviations.
+The [following table](https://github.com/tarrut/Airline-Optimization/blob/main/flight_info.csv) presents the demand distribution for each flight and the distances between cities. Demand for each flight is assumed to be normally distributed, with the specified means and standard deviations.
 
 ## Fleet assignment
 
-The first step for assigning each flight to an specific fleet, it is to
-compute the cost to every possible assignment. Therefore, for every
-flight, the cost of doing it with every fleet available is computed. The
-cost can be computed as the operating cost and the spill cost. The
-operation cost can be computed like
-CASK ⋅ *d*<sub>*k**m*</sub> ⋅ *n*<sub>*s**e**a**t**s*</sub>.
-To compute the spill cost first is needed the expected passenger spill:
-*n*<sub>*s**p**i**l**l*</sub> = ∫<sub>*c*</sub><sup>∞</sup>(*x* − *c*)*f*(*x*) *d**x*,
-where *f*(*x*) is the probability density function (PDF) for the normal
-distribution obtained with the mean (*μ*) and the standard variation
-(*σ*) of each flight
+The first step for assigning each flight to a specific fleet is to compute the cost for every possible assignment. Therefore, for every flight, the cost of performing it with each available fleet is computed. 
+
+The cost can be computed as the sum of the operating cost and the spill cost. The operating cost can be calculated as:
+
+$$
+\text{CASK} \cdot d_{km} \cdot n_{seats}.
+$$
+
+To compute the spill cost, the expected passenger spill is first needed:
+
+$$
+n_{spill} = \int_{c}^{\infty} (x - c) f(x) \; dx,
+$$
+
+where $f(x)$ is the probability density function (PDF) for the normal distribution, obtained using the mean $(\mu)$ and the standard deviation $(\sigma)$ of each flight:
+
 $$
 f(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right).
 $$
-Then, the spilled cost can be estimated like
-RASK ⋅ *d*<sub>*k**m*</sub> ⋅ *n*<sub>*s**p**i**l**l*</sub>
-Then, linear programming can be applied to determine the best fleet
-distribution, with the aim of minimizing the cost. For the presented
-case, the result is presented in the following table.
+
+The spilled cost can then be estimated as:
+
+$$
+\text{RASK} \cdot d_{km} \cdot n_{spill}.
+$$
+
+Finally, linear programming can be applied to determine the best fleet distribution with the aim of minimizing the total cost. For the presented case, the result is summarized in the following table.
+
 
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -430,23 +412,16 @@ Boeing 737-400
 </tbody>
 </table>
 
-This distribution allows to perform all the flights with the provided
-number of aircraft of each fleet.
+This distribution ensures all flights are performed with the provided fleet.
+
 
 ### Reduction of aircrafts needed
 
-However, it can be computed (using linear programming) if all the
-aircrafts are actually needed to cover the provided schedule. It
-results, that the minimum number of aircrafts is **15**, less than our
-current fleet. Despite this, the 16 aircrafts will be used up from this
-point.
+Using linear programming, we determined the minimum number of aircraft required to cover the schedule is 15. However, the current fleet of 16 aircraft will still be used.
 
 ### Best combination of aircrafts
 
-It is also quite interesting comparing the total cost of using different
-number of aircrafts from both fleets. It results that the best
-combination is formed by 8 Boeing 737-400 and 8 Airbus A321 with a
-minimum cost of 742023€.
+The optimal cost is achieved with 8 Boeing 737-400 and 8 Airbus A321 aircraft, resulting in a minimum cost of 742023€.
 
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -655,37 +630,21 @@ Total daily cost (€)
 
 ## Aircraft routing
 
-Now every flight is assigned to a fleet, but routings cycles and
-maintenance opportunities at the airport where the airline is based have
-not been considered. First it has to be checked if with the current
-schedule, the airline aircrafts can be routed in a cyclical way while
-having enough maintenance opportunities. For the purpose of doing this,
-first we have to obtain all the possible routes. This process consists
-in:
+Currently, every flight is assigned to a fleet; however, routing cycles and maintenance opportunities at the airline's base airport have not yet been considered. To address this, it is necessary to evaluate whether the current schedule allows the airline's aircraft to be routed cyclically while ensuring adequate maintenance opportunities. This process involves the following steps:
 
--   First, all the possible valid one-day routings considering turn
-    around-times.
--   Attach each feasible one day routing to all other one-day routings.
--   Each three-day routing has to be examined according to the following
-    criteria:
-    -   It starts and ends in the same city.
-    -   Each day, the route should start where the aircraft started the
-        day before.
-    -   An overnight stay at the base airport occurs at least once.
+- Generate all valid one-day routings, taking into account turnaround times.
+- Combine each feasible one-day routing with other one-day routings to create multi-day route options.
+- For each three-day routing, ensure the following:
+    - The route starts and ends in the same city.
+    - Each day's route begins where the aircraft ended the previous day.
+    - At least one overnight stay occurs at the base airport to facilitate maintenance.
 
-Then, an optimization process is now used to select which routes will be
-implemented while:
+Once all possible routes have been identified, an optimization process is applied to select which routes will be implemented. The optimization aims to maximize maintenance opportunities, ensure that each flight is operated daily, and guarantee that each aircraft has at least one maintenance opportunity within a three-day period.
 
--   Maximizing the maintenance opportunities.
--   Ensuring that each flight is carried out every day.
--   During the period of three days, each aircraft must have at least
-    one maintenance opportunity.
+With the current schedule, it has been determined that the airline requires 1 additional B737-400 aircraft and 3 additional A321 aircraft to meet the requirement of at least one maintenance opportunity every three days.
 
-It turns out that with the current schedule it is needed 1 extra
-B737-400 aircraft and 3 extra A321 aircrafts considering at least one
-maintenance opportunity every three days.
+The solution for the B737-400 is presented in the following table:
 
-The solution for the B737-400 is in the following table:
 
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
