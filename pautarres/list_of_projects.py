@@ -15,6 +15,13 @@ projects = [
         "source": "tfg.md",
     },
     {
+        "title": "John Draim's Constellation",
+        "description": "Analyzing John Draim's Satellite Constellation with MATLAB.",
+        "image_src": "./images/img_john_draim_constellation.jpg",
+        "link": "./john_draim_constellation",
+        "source": "john_draim_constellation.md",
+    },
+    {
         "title": "Personal Website",
         "description": "Creation of this very same webpage in Python using Reflex.",
         "image_src": "./images/img_personal_website.svg",
