@@ -25,18 +25,12 @@
   }
 </style>
 
-# Analysing John Draim's Satellite Constellation
+# John Draim's Constellation
 
-## Introduction
 In the 1980s, John Draim proposed a ground-breaking satellite constellation design using just four satellites to achieve full global coverage. This design, based on a perturbed tetrahedral configuration, offers substantial economic advantages and a wide range of applications, including communications, Earth observation, and meteorology.
 
 This project focuses on analysing Draim's constellation over a two-day period. Key tasks include calculating orbital parameters, converting coordinate systems, and visualizing the results.
 
-## Objective
-The primary goal is to:
-- Compute the orbital parameters for the constellation.
-- Transform satellite positions between coordinate systems.
-- Visualize the satellite ground tracks and assess coverage.
 
 ## Input Data
 
@@ -95,46 +89,59 @@ The constellation is modeled as a modified tetrahedron with the following orbita
 </table>
 
 
-A file, `SATPT.txt`, contains satellite position and velocity data over one year at 600-second intervals.
+A file, `SATPT.txt`, contains satellite position and velocity data over one year at 600-second intervals. For this project, only the data of the first three days of 2001 will be considered.
 
 ## Geocentric Satellite coordinates
-Satellite coordinates in the Earth-Centered Earth-Fixed (ECEF) system were transformed to spherical geocentric coordinates (r, λ, ϕ) using MATLAB’s `cart2sph` function. The geocentric distance was plotted as a function of time, revealing periodic sinusoidal behaviour.
+Satellite coordinates in the Earth-Centered Earth-Fixed (ECEF) system can be transformed to spherical geocentric coordinates (r, λ, ϕ) using MATLAB’s `cart2sph` function. The geocentric distance has been plotted as a function of time, revealing periodic sinusoidal behaviour.
+
+<div style="display: flex; justify-content: center;">
+    <img src="../images/john_draim_constellation/geocentricDistance.jpg" alt="Geocentric coordinates" style="width: 80%; height: auto;">    
+</div>
 
 ## Satellite Ground Tracks
 The spherical coordinates were used to plot ground tracks over the Earth’s surface in the geocentric Terrestrial Reference Frame (TRF). The analysis showed periodic patterns consistent with orbital parameters.
 
-
 <div style="display: flex; justify-content: center; align-items: center;">
-    <video controls width="640" height="360">
+    <video controls width="80%" height="auto">
       <source src="../images/john_draim_constellation/ground_track_video.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 </div>
 
 ## Coverage  
-A latitude-longitude grid was created to determine the coverage provided by the satellites at each grid point. Coverage was assessed based on satellite elevation angles exceeding 5°. The study period revealed that most regions were covered by 1–2 satellites at any given time, with minimal instances of no coverage.
+Coverage is analyzed by overlaying the constellation on a latitude-longitude grid. For a location to be "covered," the satellite's elevation angle must exceed 5°, ensuring reliable communication or observation.
 
+<br>
 <div style="display: flex; justify-content: center; align-items: center;">
-    <video controls width="640" height="360">
+    <video controls width="80%" height="auto">
       <source src="../images/john_draim_constellation/coverage_video.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 </div>
+<br>
+
+Over the studied three-day period, the majority of Earth’s surface is covered by 1–2 satellites simultaneously:
+
+- No coverage: 1.04%
+- 1 satellite coverage: 51.14%
+- 2 satellite coverage: 45.48%
+- 3 satellite coverage: 2.35%
+
+The analysis highlights efficient coverage with negligible downtime, validating Draim’s design.
+
 
 ## Coordinate Transformation to Celestial Reference Frame (CRF)  
-Satellite positions were transformed from TRF to CRF using the Greenwich Mean Sidereal Time. This inertial system provided a stable frame for visualizing orbits.
+Satellite coordinates are transformed to the Celestial Reference Frame using the Greenwich Mean Sidereal Time. This transformation allows visualization of the orbits in a stable inertial frame, providing an independent view unaffected by Earth’s rotation or precession.
 
-## Tetrahedron Visualization 
-The modified tetrahedral configuration was visualized over a full constellation period. As expected, the satellite positions formed non-equilateral triangles due to the perturbed tetrahedron setup.
+<div style="display: flex; justify-content: center;">
+    <img src="../images/john_draim_constellation/orbits.jpg" alt="Geocentric coordinates" style="width: 80%; height: auto;">    
+</div>
+
 
 ## Conclusion
-
-John Draim's four-satellite constellation achieves near-complete global coverage with minimal satellite redundancy. This study validates the feasibility of the design through numerical analysis and visualizations. The results highlight the potential of optimized constellations for various practical applications.
+John Draim's four-satellite constellation demonstrates an innovative balance of efficiency and functionality. The constellation achieves near-global coverage with minimal overlap, offering significant implications for cost-effective satellite design. This analysis affirms the robustness of Draim’s design and its potential applicability across diverse fields, from meteorology to global communications.
 
 
 ## References
 
-- Draim, J. "Four-Satellite Full Earth Coverage Constellations," [Publication Details].
-- MATLAB documentation for coordinate transformations.
-
-
+- Draim, J. "Three- and four-satellite continuous-coverage constellations"

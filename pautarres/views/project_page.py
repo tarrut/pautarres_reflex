@@ -68,7 +68,8 @@ component_map = {
         text,
         border_bottom="2px solid black",
         margin_top="2rem",
-        padding_bottom="0.5rem"
+        padding_bottom="0.5rem",
+        margin_bottom="2rem",
     ),
     "h2": lambda text: rx.heading(
         text,
