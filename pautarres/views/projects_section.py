@@ -37,4 +37,6 @@ def proj_cards():
 
 def projects_section():
     """Create the projects section with multiple project cards."""
-    return proj_cards()
+    return rx.box(
+        proj_cards(),
+    )
