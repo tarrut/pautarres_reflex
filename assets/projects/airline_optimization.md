@@ -1,28 +1,67 @@
 <style>
+  /* General styling for the table */
+  .table-container {
+    display: block; /* Block-level container for scrolling */
+    overflow-x: auto; /* Horizontal scrolling */
+    margin: 0 auto; /* Centers the container */
+  }
+
   table {
-    width: auto !important;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse; /* Optional: for better table layout */
+    border-collapse: collapse; /* Improved table layout */
   }
 
-  table th, table td {
+  th, td {
     text-align: center;
-    padding: 8px; /* Optional: adds padding to cells */
-    border: 1px solid #ddd; /* Optional: adds border to cells */
+    padding: 8px;
+    border: 1px solid #ddd;
   }
 
-  /* Optional: specific style for header row */
-  table th {
+  th {
     background-color: #f2f2f2; /* Light grey */
     font-weight: bold;
   }
 
-  /* Optional: style for the highlighted row */
   tr:hover {
     background-color: #f9f9f9; /* Light hover effect */
   }
+
+  /* Responsive design for mobile screens */
+  @media (max-width: 400px) {
+    table, thead, tbody, th, td, tr {
+      display: block; /* Make table elements block-level */
+      margin: 0 auto; /* Center the table elements */
+    }
+
+    th, td {
+      box-sizing: border-box; /* Include padding and border in element's total width and height */
+    }
+
+    thead tr {
+      display: none; /* Hide table header */
+    }
+
+    tr {
+      margin-bottom: 10px; /* Space between rows */
+    }
+
+    td {
+      text-align: right; /* Align text to the right */
+      padding-left: 50%; /* Add padding to the left */
+      position: relative; /* Position relative for pseudo-element */
+    }
+
+    td::before {
+      content: attr(data-label); /* Use data-label attribute for pseudo-element content */
+      position: absolute; /* Position absolute for pseudo-element */
+      left: 0; /* Align to the left */
+      width: 50%; /* Half width for pseudo-element */
+      padding-left: 10px; /* Padding for pseudo-element */
+      text-align: left; /* Align text to the left */
+      font-weight: bold; /* Bold text for pseudo-element */
+    }
+  }
 </style>
+
 
 # Airline Optimization
 
@@ -86,6 +125,7 @@ $$
 
 Finally, linear programming can be applied to determine the best fleet distribution with the aim of minimizing the total cost. For the presented case, the result is summarized in the following table.
 
+<div class="table-container">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
@@ -264,7 +304,7 @@ Finally, linear programming can be applied to determine the best fleet distribut
     </tr>
   </tbody>
 </table>
-
+</div>
 
 This distribution ensures all flights are performed with the provided fleet.
 
@@ -278,6 +318,7 @@ Using linear programming, we determined the minimum number of aircraft required 
 
 The optimal cost is achieved with 8 Boeing 737-400 and 8 Airbus A321 aircraft, resulting in a minimum cost of 742023€.
 
+<div class="table-container">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
@@ -374,6 +415,7 @@ The optimal cost is achieved with 8 Boeing 737-400 and 8 Airbus A321 aircraft, r
     </tr>
   </tbody>
 </table>
+</div>
 
 
 ## Aircraft routing
@@ -393,6 +435,7 @@ With the current schedule, it has been determined that the airline requires 1 ad
 
 The solution for the B737-400 is presented in the following table:
 
+<div class="table-container">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
@@ -447,10 +490,12 @@ The solution for the B737-400 is presented in the following table:
     </tr>
   </tbody>
 </table>
+</div>
 
 
 On the other hand, the routings selected for the A321 are:
 
+<div class="table-container">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
@@ -541,6 +586,7 @@ On the other hand, the routings selected for the A321 are:
     </tr>
   </tbody>
 </table>
+</div>
 
 
 ### Stranded flights
@@ -552,6 +598,7 @@ changes in the schedule can be made manually to reduce the stranded
 flights.
 
 Former schedule:
+<div class="table-container">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
@@ -606,8 +653,10 @@ Former schedule:
     </tr>
   </tbody>
 </table>
+</div>
 
 Modified schedule:
+<div class="table-container">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
@@ -662,6 +711,7 @@ Modified schedule:
     </tr>
   </tbody>
 </table>
+</div>
 
 
 ### Routing for revised schedule
@@ -670,6 +720,7 @@ With the revised schedule it is only needed 1 extra B737-400 aircrafts.
 
 Here are the new routings selected for the B737-400:
 
+<div class="table-container">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
@@ -724,11 +775,13 @@ Here are the new routings selected for the B737-400:
     </tr>
   </tbody>
 </table>
+</div>
 
 
 This table shows the maintenance opportunities during the three-day
 routings:
 
+<div class="table-container">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
@@ -789,10 +842,12 @@ routings:
     </tr>
   </tbody>
 </table>
+</div>
 
 
 The solution for A321 is:
 
+<div class="table-container">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
@@ -865,9 +920,11 @@ The solution for A321 is:
     </tr>
   </tbody>
 </table>
+</div>
 
 And, this fleet has 18 maintenance opportunities:
 
+<div class="table-container">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
@@ -946,3 +1003,4 @@ And, this fleet has 18 maintenance opportunities:
     </tr>
   </tbody>
 </table>
+</div>
