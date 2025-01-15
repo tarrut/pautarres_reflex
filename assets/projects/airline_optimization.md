@@ -26,7 +26,7 @@
   }
 
   /* Responsive design for mobile screens */
-  @media (max-width: 400px) {
+  @media (max-width: 200px) {
     table, thead, tbody, th, td, tr {
       display: block; /* Make table elements block-level */
       margin: 0 auto; /* Center the table elements */
