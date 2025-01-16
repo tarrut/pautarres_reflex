@@ -1,0 +1,2 @@
+## Satellite Ground Tracks
+The spherical coordinates were used to plot ground tracks over the Earth’s surface in the geocentric Terrestrial Reference Frame (TRF). The analysis showed periodic patterns consistent with orbital parameters.

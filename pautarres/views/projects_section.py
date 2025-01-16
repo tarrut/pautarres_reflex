@@ -2,7 +2,7 @@ import reflex as rx
 from ..components.project_card import project_card
 from ..list_of_projects import projects
 
-def proj_cards():
+def projects_section():
     """Create multiple project cards with data from the projects list."""
     return rx.box(
         *[
@@ -33,10 +33,4 @@ def proj_cards():
         ),
         id="projects",
         margin_bottom="7rem",
-    )
-
-def projects_section():
-    """Create the projects section with multiple project cards."""
-    return rx.box(
-        proj_cards(),
     )

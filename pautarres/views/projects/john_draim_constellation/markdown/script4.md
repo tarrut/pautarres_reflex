@@ -1,0 +1,2 @@
+## Coverage  
+Coverage is analyzed by overlaying the constellation on a latitude-longitude grid. For a location to be "covered," the satellite's elevation angle must exceed 5°, ensuring reliable communication or observation.

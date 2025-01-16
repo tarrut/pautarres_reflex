@@ -1,0 +1,5 @@
+Satellite,Inclination,Orbital Period,Eccentricity,Argument of Perigee,RAAN,Mean Anomaly
+S1,31.3°,26.49 h,0.263,-90°,0°,0°
+S2,31.3°,26.49 h,0.263,90°,90°,270°
+S3,31.3°,26.49 h,0.263,-90°,180°,180°
+S4,31.3°,26.49 h,0.263,90°,270°,90°
