@@ -59,12 +59,12 @@ Raviart-Thomas elements are essential for problems involving vector fields, espe
 - $K$ is a simplex.
 - $P$ is the vector space
 $$
-  \mathbb{RT}_k = \left\{ \mathbf{p}(x) = \mathbf{q}(x) + \mathbf{r}(x), \ \mathbf{q}(x) \in \mathbb{P}_k^d, \ \mathbf{r}(x) \in \mathbb{P}_{k-1}^d \cdot \mathbf{x}, \ \mathbf{q}, \mathbf{r} : K \rightarrow \mathbb{R}^d \right\},
+  \mathbb{RT}_k = [\mathbb{P}_0]^d \oplus x\mathbb{P}_0,
   $$
   where $\mathbb{P}_k^d$ is the space of vector polynomials of degree $k$, and $\mathbb{P}_{k-1}^d \cdot \mathbf{x}$ introduces divergence continuity across faces.
 - The linear forms in $\Sigma$ are associated with the normal components of the vector field on the element’s edges or faces:
 $$
-  \sigma_i(\mathbf{p}) = \int_{F_i} \mathbf{p} \cdot \mathbf{n} \, dS,
+  \sigma_i(p) = \int_{F_i} p \cdot \mathbf{n} \, dS,
 $$
   where $F_i$ is a face ($d=3$) or edge ($d=2$) of the element, and $\mathbf{n}$ is the outward normal vector.
 
@@ -74,7 +74,7 @@ Nédélec elements are critical for solving problems involving curl-conforming v
 - $K$ is again a simplex.
 - $P$ is the vector space $\mathbb{N}_{k}$
 $$
-  \mathbb{N}_k = \left\{ \mathbf{p}(x) = \mathbf{q}(x) + \mathbf{r}(x) \times \mathbf{x}, \ \mathbf{q}(x) \in \mathbb{P}_{k-1}^d, \ \mathbf{r}(x) \in \mathbb{P}_{k-1}^d \right\},
+  \mathbb{N}_k = [\mathbb{P}_0]^d \oplus \mathcal{R}_1,\; \mathcal{R}_1 = \{p\in [\mathbb{P}_1]^d;\;x\cdot p=0\}
   $$
   where $\mathbf{q}$ ensures tangential continuity, and $\mathbf{r} \times \mathbf{x}$ allows for curl-conforming properties.
 - The linear forms in $\Sigma$ are associated with the tangential components of the vector field along edges:
