@@ -1,0 +1,1 @@
+Once permission is granted, the tool retrieves the latest weather data and Claude presents a clear, concise answer to the user:

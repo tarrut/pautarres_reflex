@@ -1,0 +1,1 @@
+When a user prompts Claude with a weather-related question, the assistant automatically identifies the need to use the external tool:

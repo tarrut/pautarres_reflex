@@ -1,0 +1,1 @@
+Before any external access is performed, Claude asks for the user's explicit permission:
