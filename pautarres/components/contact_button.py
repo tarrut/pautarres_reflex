@@ -4,7 +4,7 @@ def contact_button():
     """Create a 'Contact Me' button with hover effect."""
     return rx.el.a(
         "Contact Me",
-        href="mailto:tarres.pau@gmail.com.com",
+        href="mailto:tarres.pau@gmail.com",
         background_color="#000000",
         transition_duration="300ms",
         _hover={"background-color": "#9CA3AF"},
